@@ -25,8 +25,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import net.ubiquity.info.track_mate.send_email.SMTPAuthenticator;
-
 /**
  * Utility class for sending plain-text emails.
  * @author Gareth Smith <gareth@track-mate.info>
