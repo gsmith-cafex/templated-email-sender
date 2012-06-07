@@ -45,6 +45,7 @@ public class PlainTextEmailSender extends AbstractEmailSender implements Message
 
   /**
    * Creates a new PlainTextEmailSender using the specified properties
+   * @param props The configuration properties to initialise the mail system with.
    */
   public PlainTextEmailSender(Properties props){
       super(props);

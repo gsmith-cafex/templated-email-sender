@@ -52,7 +52,8 @@ public abstract class AbstractEmailSender implements MessageSender {
   }
 
   /**
-   * Constructor that passes in the properties directly
+   * Creates a new AbstractEmailSender.
+   * @param props The configuration properties to initialise the mail system with.
    */
   protected AbstractEmailSender(Properties props){
       mailServerConfig = props;
