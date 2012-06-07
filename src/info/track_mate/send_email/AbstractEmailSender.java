@@ -52,6 +52,13 @@ public abstract class AbstractEmailSender implements MessageSender {
   }
 
   /**
+   * Constructor that passes in the properties directly
+   */
+  protected AbstractEmailSender(Properties props){
+      mailServerConfig = props;
+  }
+
+  /**
    * Creates a new AbstractEmailSender
    * @param configFilename The name of the config file to initialise the mail system with.
    */
@@ -113,7 +120,7 @@ public abstract class AbstractEmailSender implements MessageSender {
     } else {
       file = new File(configFilename);
     }
-    
+
     if (file.exists()) {
       configFilePath = file.getAbsolutePath();
       try {
@@ -121,7 +128,7 @@ public abstract class AbstractEmailSender implements MessageSender {
       } catch (Exception e) {
         logger.error("Failed to read file: " + file.getAbsolutePath(), e);
       }
-      
+
     } else {
       try {
         URL url = Thread.currentThread().getContextClassLoader().getResource(configFilename);

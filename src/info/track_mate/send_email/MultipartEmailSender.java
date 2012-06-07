@@ -49,6 +49,13 @@ public class MultipartEmailSender extends AbstractEmailSender implements Message
   }
 
   /**
+   * Creates a new MultipartEmailSender using the specified properties
+   */
+  public MultipartEmailSender(Properties props){
+      super(props);
+  }
+
+  /**
    * Creates a new MultipartEmailSender
    * @param configFilename The name of the config file to initialise the mail system with.
    */

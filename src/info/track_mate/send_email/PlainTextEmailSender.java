@@ -16,12 +16,16 @@
 package info.track_mate.send_email;
 
 import java.util.Collection;
+import java.util.Properties;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import net.ubiquity.info.track_mate.send_email.SMTPAuthenticator;
 
 /**
  * Utility class for sending plain-text emails.
@@ -37,6 +41,13 @@ public class PlainTextEmailSender extends AbstractEmailSender implements Message
    */
   public PlainTextEmailSender() {
     super();
+  }
+
+  /**
+   * Creates a new PlainTextEmailSender using the specified properties
+   */
+  public PlainTextEmailSender(Properties props){
+      super(props);
   }
 
   /**
@@ -57,7 +68,7 @@ public class PlainTextEmailSender extends AbstractEmailSender implements Message
   @Override
   public void sendMessage(Collection<String> recipientAddresses, Collection<String> ccAddresses, Collection<String> bccAddresses, String messageSubject,
           String messageBody, Collection<MessageAttachment> messageAttachments) throws Exception {
-    Session session = Session.getDefaultInstance(mailServerConfig, new SMTPAuthenticator());
+    Session session = Session.getInstance(mailServerConfig, new SMTPAuthenticator());
     logger.info("Got session: " + session);
     if (logger.isDebugEnabled()) {
       session.setDebug(true);
